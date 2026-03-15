@@ -66,7 +66,7 @@ class ChurnDataExtract:
 
 
 if __name__ == "__main__":
-    FILE_PATH = r"data/train_new.csv"  
+    FILE_PATH = r"data/dataset.csv"  
     DATABASE = "BMPROJECTS"
     COLLECTION = "CustomerChurn"
 
