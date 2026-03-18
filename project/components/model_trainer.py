@@ -41,29 +41,20 @@ class ModelTrainer:
             logging.info(f"Imbalance ratio: {ratio}")
 
             
-            #  Defining models
+            #  Define models
             
             models = {
-                "LogisticRegression": LogisticRegression(
-                    max_iter=2000, class_weight="balanced", solver="liblinear"
-                ),
-
-                "RandomForest": RandomForestClassifier(
-                    n_estimators=400, max_depth=12,
-                    min_samples_split=5, min_samples_leaf=2,
-                    class_weight="balanced", random_state=42
-                ),
-
                 "XGBoost": XGBClassifier(
-                    n_estimators=500, learning_rate=0.03, max_depth=4,
-                    subsample=0.9, colsample_bytree=0.9,
+                    n_estimators=500,
+                    learning_rate=0.03,
+                    max_depth=4,
+                    subsample=0.9,
+                    colsample_bytree=0.9,
                     scale_pos_weight=ratio,
-                    gamma=0.5, reg_lambda=5,reg_alpha=2,
-                    random_state=42, eval_metric="logloss",
-                    use_label_encoder=False
+                    eval_metric="logloss",
+                    tree_method = 'hist'
                 )
             }
-
             
             #  Training & evaluating models
             
@@ -142,6 +133,8 @@ class ModelTrainer:
             print(f"F1 Score: {f1}")
             print(f"ROC-AUC: {roc_auc}")
             print(f"Threshold: {best_threshold}")
+            logging.info(f"Best model: {best_model_name} at threshold {best_threshold}")
+
 
             
             #  Save best model
