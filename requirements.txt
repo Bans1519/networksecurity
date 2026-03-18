@@ -11,6 +11,9 @@ ipykernel
 dill
 pyaml
 imblearn
+xgboost
+mlflow
+shap
 
 
 ##-e .
