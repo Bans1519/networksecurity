@@ -10,7 +10,7 @@ pymongo[srv]==3.12
 ipykernel
 dill
 pyaml
-
+imblearn
 
 
 ##-e .
